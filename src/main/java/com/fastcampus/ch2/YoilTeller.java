@@ -17,21 +17,13 @@ public class YoilTeller {
 
     // 프로그램과 URL 연결
     @RequestMapping("/getYoil")
-    public void main(HttpServletRequest request,
+    public void main(int year, int month, int day,
                        HttpServletResponse response) throws IOException {
-        // 1. 요청에서 데이터 입력받기
-        String year = request.getParameter("year");
-        String month = request.getParameter("month");
-        String day = request.getParameter("day");
-
-        int yyyy = Integer.parseInt(year);
-        int mm = Integer.parseInt(month);
-        int dd = Integer.parseInt(day);
 
         // 2. 작업 - 요일을 계산
         Calendar cal = Calendar.getInstance();      // 현재 날짜와 시간을 가져오기
         cal.clear();                                // cal의 모든 필드 초기화
-        cal.set(yyyy, mm-1, dd);        // 월은 0-11로 들어가야 됨(-1이 필요)
+        cal.set(year, month-1, day);        // 월은 0-11로 들어가야 됨(-1이 필요)
 
         int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);  // 요일을 1~7을 반환(DAY_OF_WEEK)
         char yoil = "일월화수목금토".charAt(dayOfWeek-1);  // 1~7을 0~6으로 변환 필요
