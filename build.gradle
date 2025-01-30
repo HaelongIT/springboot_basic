@@ -18,9 +18,9 @@ repositories {
 }
 
 dependencies {
-    implementation ('org.springframework.boot:spring-boot-starter-web') {
-        exclude group: 'com.fasterxml,jackson.core', module: 'jackson-databind'
-    }
+//    implementation ('org.springframework.boot:spring-boot-starter-web') {
+//        exclude group: 'com.fasterxml,jackson.core', module: 'jackson-databind'
+//    }
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     runtimeOnly 'com.mysql:mysql-connector-j'
