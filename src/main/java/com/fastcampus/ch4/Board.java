@@ -13,7 +13,11 @@ public class Board {
 
     private String title;
 
-    private String writer;
+//    private String writer;
+
+    @ManyToOne      // 여러 Board에 하나의 User 가능    // FK 자동 생성
+    @JoinColumn(name = "user_id", nullable = false)     // inner join만 사용
+    private User user;
 
     private String content;
 
@@ -41,13 +45,13 @@ public class Board {
         this.title = title;
     }
 
-    public String getWriter() {
-        return writer;
-    }
-
-    public void setWriter(String writer) {
-        this.writer = writer;
-    }
+//    public String getWriter() {
+//        return writer;
+//    }
+//
+//    public void setWriter(String writer) {
+//        this.writer = writer;
+//    }
 
     public String getContent() {
         return content;
@@ -81,12 +85,20 @@ public class Board {
         this.upDate = upDate;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "Board{" +
                 "bno=" + bno +
                 ", title='" + title + '\'' +
-                ", writer='" + writer + '\'' +
+//                ", user=" + user +
                 ", content='" + content + '\'' +
                 ", viewCount=" + viewCount +
                 ", inDate=" + inDate +
