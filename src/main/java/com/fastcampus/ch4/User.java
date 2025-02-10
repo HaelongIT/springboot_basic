@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class User {
     @Id     // PK로 지정
-    @Column(name = "user_id")
+//    @Column(name = "user_id")
     private String id;
     private String password;
     private String name;
@@ -20,8 +20,8 @@ public class User {
     // FetchType.EAGER - 두 엔티티의 정보를 같이 가져오는 것(join)
     // FetchType.LAZY - 두 엔티티의 정보를 따로 가져오는 것(getter), 기본값
 //    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)      // 다대일 : User 하나에 여러 Board가 가능
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)      // 다대일 : User 하나에 여러 Board가 가능   // FK 자동 생성 안됨(mappedBy)
-    List<Board> list = new ArrayList<>();
+//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)      // 다대일 : User 하나에 여러 Board가 가능   // FK 자동 생성 안됨(mappedBy)
+//    List<Board> list = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -71,13 +71,27 @@ public class User {
         this.upDate = upDate;
     }
 
-    public List<Board> getList() {
-        return list;
-    }
+//    public List<Board> getList() {
+//        return list;
+//    }
+//
+//    public void setList(List<Board> list) {
+//        this.list = list;
+//    }
 
-    public void setList(List<Board> list) {
-        this.list = list;
-    }
+//    @Override
+//    public String toString() {
+//        return "User{" +
+//                "id='" + id + '\'' +
+//                ", password='" + password + '\'' +
+//                ", name='" + name + '\'' +
+//                ", email='" + email + '\'' +
+//                ", inDate=" + inDate +
+//                ", upDate=" + upDate +
+//                ", list=" + list +
+//                '}';
+//    }
+
 
     @Override
     public String toString() {
@@ -88,7 +102,6 @@ public class User {
                 ", email='" + email + '\'' +
                 ", inDate=" + inDate +
                 ", upDate=" + upDate +
-                ", list=" + list +
                 '}';
     }
 }
